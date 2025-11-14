@@ -79,6 +79,7 @@ window.addEventListener('scroll', () => {
 
 
 
+// skills window 
 
 const track = document.getElementById("track");
 const loop = document.getElementById("loop");
