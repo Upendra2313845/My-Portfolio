@@ -328,188 +328,6 @@ header {
 }
 
 
-
-
-
-/* ------------------------------------------------------------------------- */
-/* PROJECTS SECTION */
-/* ------------------------------------------------------------------------- */
-/* PROJECT SECTION */
-.projects {
-  padding: 90px 20px;
-  background: linear-gradient(135deg, #ffffff, #e7f9fc);
-  text-align: center;
-}
-
-.projects-title {
-  font-size: 45px;
-  font-family: "Leckerli One";
-  color: #07525c;
-  margin-bottom: 40px;
-}
-
-/* Window */
-.project-window {
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
-  overflow-x: auto;
-  overflow-y: hidden;
-  cursor: grab;
-
-  /* Hide scrollbar */
-  scrollbar-width: none;
-}
-.project-window::-webkit-scrollbar {
-  display: none;
-}
-
-/* Track */
-.projects-track {
-  display: flex;
-  gap: 30px;
-  padding-bottom: 10px;
-}
-
-/* CARD (BIGGER SIZE — 2 CARDS ALWAYS VISIBLE) */
-.project-card {
-  min-width: 480px;             /* Bigger so 2 cards visible */
-  max-width: 480px;
-
-  background: #ffffff;
-  border-radius: 15px;
-  border: 3px solid #07525c;
-  padding: 20px;
-  box-shadow: 0px 12px 28px rgba(7,82,92,0.25);
-  transition: 0.3s ease;
-}
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Title */
-.project-card h3 {
-  font-size: 26px;
-  font-family: "Patrick Hand";
-  color: #07525c;
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-
-/* Image */
-.project-card img {
-  width: 100%;
-  height: 240px;                 /* Bigger Image */
-  object-fit: contain;   
-  border-radius: 10px;
-  margin-bottom: 1px;
-}
-
-/* Buttons */
-.project-btns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.project-btns a {
-  width: 48%;
-  padding: 12px 0;
-  background: rgba(7,82,92,0.1);
-  border: 2px solid #07525c;
-  border-radius: 10px;
-  font-family: "Patrick Hand";
-  font-size: 25px;
-  color: #07525c;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.project-btns a:hover {
-  background: #07525c;
-  color: white;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-  .project-card {
-      min-width: 90%;
-  }
-}
-
-/* Arrow Container */
-.project-arrows {
-  width: 100%;
-  max-width: 1150px;
-  margin: auto;
-  position: relative;
-  height: 0;
-}
-
-/* Arrows */
-.p-arrow {
-  position: absolute;
-  top: -20px;
-  transform: translateY(-50%);
-  background: #07525c;
-  color: white;
-  border: none;
-  font-size: 28px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 4px 10px rgba(7,82,92,0.3);
-}
-
-.p-arrow:hover {
-  background: #0d6b77;
-  transform: translateY(-50%) scale(1.12);
-}
-
-/* Left arrow */
-.left-arrow {
-  left: -55px;
-}
-
-/* Right arrow */
-.right-arrow {
-  right: -55px;
-}
-
-@media(max-width: 700px) {
-  .left-arrow { left: -10px; }
-  .right-arrow { right: -10px; }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
 /* SKILLS PAGE */
 .skills-page{
@@ -526,41 +344,42 @@ header {
   margin-bottom: 50px;
 }
 
-/* SKILLS WINDOW */
+/* SKILLS WINDOW — CLEAN & NO SCROLLBAR */
 .skills-window {
   width: 100%;
   max-width: 1300px;
   height: 280px;
   margin: auto;
-  overflow-x: auto;
+  overflow-x: auto;   /* allow drag scroll */
   overflow-y: hidden;
+  position: relative;
   white-space: nowrap;
   cursor: grab;
 
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  /* hide scrollbar everywhere */
+  -ms-overflow-style: none;    /* IE / Edge */
+  scrollbar-width: none;       /* Firefox */
 }
 
 .skills-window::-webkit-scrollbar {
-  display: none;
+  display: none;               /* Chrome / Safari */
 }
 
 .skills-window:active {
   cursor: grabbing;
 }
 
-/* TRACK — NO ANIMATION HERE */
+/* TRACK – Infinite loop motion */
 .skills-track{
   display: inline-flex;
   gap: 40px;
   width: max-content;
+  animation: autoMove 30s linear infinite;
 }
 
-/* ---------------- WAVE ANIMATION (LEFT → RIGHT) ---------------- */
-@keyframes waveLR {
+@keyframes autoMove {
   0%   { transform: translateX(0); }
-  50%  { transform: translateX(-10px); }  /* LEFT move */
-  100% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* SKILL BOX */
@@ -571,16 +390,11 @@ header {
   border: 3px solid #0d526b;
   border-radius: 18px;
   box-shadow: 0px 12px 28px rgba(7,82,92,0.25);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   transition: 0.3s ease;
-
-  /* APPLY REVERSE WAVE */
-  animation: waveLR 2.8s ease-in-out infinite;
 }
 
 .skill-box:hover{
@@ -614,7 +428,8 @@ header {
   }
 }
 
-/* TAGS */
+
+
 .skills-tags {
   display: flex;
   justify-content: center;
@@ -636,3 +451,4 @@ header {
   color: #0d526b;
   transform: scale(1.05);
 }
+
